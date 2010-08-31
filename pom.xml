@@ -11,6 +11,7 @@
 
     <properties>
         <maven.db.skip>false</maven.db.skip>
+        <maven.db.drop>false</maven.db.drop>
     </properties>
 
     <dependencies>
@@ -90,9 +91,13 @@
                         </goals>
                         <configuration>
                             <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>src/main/sql/baseline/01_customer_schema.sql</srcFile>
-                            </srcFiles>
+                            <orderFile>ascending</orderFile>
+                            <fileset>
+                                <basedir>${basedir}</basedir>
+                                <includes>
+                                    <include>src/main/sql/baseline/*.sql</include>
+                                </includes>
+                            </fileset>
                         </configuration>
                     </execution>
                     <execution>
@@ -106,7 +111,7 @@
                             <fileset>
                                 <basedir>${basedir}</basedir>
                                 <includes>
-                                    <include>src/test/sql/testdata/01_insert_customers.sql</include>
+                                    <include>src/test/sql/testdata/*.sql</include>
                                 </includes>
                             </fileset>
                         </configuration>
@@ -120,6 +125,7 @@
                         <configuration>
                             <autocommit>true</autocommit>
                             <sqlCommand>drop database customer_dev</sqlCommand>
+                            <skip>${maven.db.drop}</skip>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,11 +1,19 @@
-CREATE TABLE PEOPLE (
-  PERSON_ID         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  FIRST_NAME        VARCHAR(20),
-  LAST_NAME         VARCHAR(20),
-  ADDRESS_LINE_1    VARCHAR(20),
-  ADDRESS_LINE_2    VARCHAR(100),
-  PHONE_NUMBER      VARCHAR(10),
-  CITY              VARCHAR(20),
-  STATE             VARCHAR(2),
-  ZIP_CODE          VARCHAR(5)
+create table people (
+  person_id         int not null auto_increment primary key,
+  first_name        varchar(20),
+  last_name         varchar(20),
+  address_line_1    varchar(20),
+  address_line_2    varchar(100),
+  phone_number      varchar(20),
+  city              varchar(20),
+  state             varchar(2),
+  zip_code          varchar(5)
 );
+
+create table states (
+  state             varchar(2) not null primary key,
+  description       varchar(20)
+);
+
+alter table people add constraint fk_people_state
+  foreign key (state) references states(state);
