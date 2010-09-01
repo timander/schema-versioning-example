@@ -1,13 +1,20 @@
 Show a technique to keep track of the schema version of your database
  * incremental changes using the baseline, changes, testdata pattern
+ * SchemaVersionTestCase
 
+Later...
+ * In-Memory DDL comparison
+ * dbFit
+ * Hibernate Enums
+ * GORM
 
 
 ------------------------------------
 MySQL commands
 ------------------------------------
 $ mysql -u root -p
+mysql> create database bootstrapdb;
 mysql> create database customer_dev;
+mysql> grant all on bootstrapdb.* to admin@localhost identified by 'p@ssw0rd';
 mysql> grant all on customer_dev.* to admin@localhost identified by 'p@ssw0rd';
-mysql> grant all on test.* to admin@localhost identified by 'p@ssw0rd';
 mysql> exit

@@ -17,3 +17,11 @@ create table states (
 
 alter table people add constraint fk_people_state
   foreign key (state) references states(state);
+
+
+create table schema_version (
+  schema_version_id int not null auto_increment primary key,
+  script_name       varchar(255) not null,
+  date_applied      TIMESTAMP  not null default CURRENT_TIMESTAMP,
+  username          varchar(32) not null default 'system'
+);
