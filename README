@@ -2,12 +2,17 @@ Show a technique to keep track of the schema version of your database
  * incremental changes using the baseline, changes, testdata pattern
  * SchemaVersionTestCase
 
+WIP
+ * backwards compatible PersonView (test with dbFit or JUnit)
+
 Later...
  * In-Memory DDL comparison
- * dbFit
+ * dbFit, fitnesse, fitlibrary
  * Hibernate Enums
  * GORM
-
+ * test within transaction, then rollback
+ * view for metadata
+ * view for rowcount for each table
 
 ------------------------------------
 MySQL commands

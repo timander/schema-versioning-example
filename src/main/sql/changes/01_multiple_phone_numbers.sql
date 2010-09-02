@@ -20,5 +20,22 @@ insert into phone_numbers (phone_number, phone_type, person_id)
 
 alter table people drop column phone_number;
 
+drop view people_view;
+
+create view people_view as (
+  select
+    a.person_id,
+    a.first_name,
+    a.last_name,
+    b.phone_number,
+    a.address_line_1,
+    a.address_line_2,
+    a.city,
+    a.state,
+    a.zip_code
+  from people a join phone_numbers b on b.person_id = a.person_id
+  where b.phone_type = 'H'
+);
+
 
 insert into schema_version (script_name) values ('01_multiple_phone_numbers.sql');
