@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="net.timandersen.model.Person" table="people">
+
+        <id name="id" column="person_id" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+
+        <property name="firstName" column="first_name"/>
+        <property name="lastName" column="last_name"/>
+        <property name="addressLine1" column="address_line_1"/>
+        <property name="addressLine2" column="address_line_2"/>
+        <property name="city" column="city"/>
+        <property name="state" column="state"/>
+        <property name="zipCode" column="zip_code"/>
+
+    </class>
+</hibernate-mapping>
