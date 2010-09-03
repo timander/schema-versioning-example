@@ -12,7 +12,7 @@ Later...
  * test within transaction, then rollback
  * view for metadata
  * view for rowcount for each table
- * setup the sql spy driver
+ * setup log4jdbc
 
 Lab Exercises:
  * Add Email Address to Person
