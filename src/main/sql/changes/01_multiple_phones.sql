@@ -38,4 +38,4 @@ create view people_view as (
 );
 
 
-insert into schema_version (script_name) values ('01_multiple_phone_numbers.sql');
+insert into schema_version (script_name) values ('01_multiple_phones.sql');
