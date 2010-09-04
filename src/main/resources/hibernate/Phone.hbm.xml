@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="net.timandersen.model.Phone" table="phone_numbers">
+
+        <id name="id" column="phone_number_id" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+
+        <property name="number" column="phone_number"/>
+        <property name="type" column="phone_type"/>
+
+        <many-to-one name="person" column="person_id" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

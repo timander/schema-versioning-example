@@ -18,6 +18,11 @@
         <property name="city" column="city"/>
         <property name="state" column="state"/>
         <property name="zipCode" column="zip_code"/>
+        
+        <set name="phones" cascade="all-delete-orphan" inverse="true">
+          <key column="person_id"/>
+          <one-to-many class="net.timandersen.model.Phone"/>
+        </set>
 
     </class>
 </hibernate-mapping>
