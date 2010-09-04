@@ -1,11 +1,14 @@
-Show a technique to keep track of the schema version of your database
- * incremental changes using the baseline, changes, testdata pattern
- * SchemaVersionTestCase
- * backwards compatible PersonView (test from JUnit)
+PURPOSE: Show technique to track the schema version of your database
+ 1. incremental database changes using nuke & pave
+     + baseline
+     + changes
+     + testdata
+ 2. SchemaVersionTestCase
+ 3. backwards compatible PersonView (test from JUnit)
 
-WIP
+WIP 
 
-Later...
+TO DO:
  * In-Memory DDL comparison
  * dbFit, fitnesse, fitlibrary
  * Hibernate Enums

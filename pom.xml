@@ -12,6 +12,7 @@
   <properties>
     <maven.db.skip>false</maven.db.skip>
     <spring.version>3.0.3.RELEASE</spring.version>
+    <mysql.driver.version>5.1.13</mysql.driver.version>
   </properties>
 
   <dependencies>
@@ -39,11 +40,12 @@
       <groupId>commons-dbcp</groupId>
       <artifactId>commons-dbcp</artifactId>
       <version>1.2.2</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.13</version>
+      <version>${mysql.driver.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -67,6 +69,24 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0-alpha-2</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>${basedir}/src/main/resources/config.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
@@ -79,18 +99,17 @@
         <artifactId>sql-maven-plugin</artifactId>
         <version>1.4</version>
         <dependencies>
-          <!-- specify the dependent jdbc driver here -->
           <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.13</version>
+            <version>${mysql.driver.version}</version>
           </dependency>
         </dependencies>
         <configuration>
-          <driver>com.mysql.jdbc.Driver</driver>
-          <url>jdbc:mysql://localhost:3306/customer_dev?autoreconnect=true</url>
-          <username>admin</username>
-          <password>p@ssw0rd</password>
+          <driver>${database.driver}</driver>
+          <url>${database.url}</url>
+          <username>${database.username}</username>
+          <password>${database.password}</password>
           <skip>${maven.db.skip}</skip>
           <autocommit>true</autocommit>
         </configuration>
@@ -108,7 +127,7 @@
                 drop database customer_dev;
                 create database customer_dev;
               </sqlCommand>
-              <!-- ignore error when database is not avaiable -->
+              <!-- ignore error when database is not available -->
               <onError>continue</onError>
             </configuration>
           </execution>
