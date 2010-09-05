@@ -7,12 +7,14 @@ public class Phone {
   private String type;
   private Person person;
 
-  public Long getId() {
-    return id;
+  public Phone(String number, String type, Person person) {
+    this.number = number;
+    this.type = type;
+    this.person = person;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public Long getId() {
+    return id;
   }
 
   public String getNumber() {

@@ -7,21 +7,25 @@
 <hibernate-mapping>
     <class name="net.timandersen.model.Person" table="people">
 
-        <id name="id" column="person_id" unsaved-value="0">
+        <id name="id" column="person_id" unsaved-value="0" access="field">
             <generator class="native"/>
         </id>
 
-        <property name="firstName" column="first_name"/>
-        <property name="lastName" column="last_name"/>
-        <property name="addressLine1" column="address_line_1"/>
-        <property name="addressLine2" column="address_line_2"/>
-        <property name="city" column="city"/>
-        <property name="state" column="state"/>
-        <property name="zipCode" column="zip_code"/>
+        <property name="firstName" column="first_name" access="field"/>
+        <property name="lastName" column="last_name" access="field"/>
+        <property name="addressLine1" column="address_line_1" access="field"/>
+        <property name="addressLine2" column="address_line_2" access="field"/>
+        <property name="city" column="city" access="field" />
+        <property name="state" column="state" access="field"/>
+        <property name="zipCode" column="zip_code" access="field"/>
         
-        <set name="phones" cascade="all-delete-orphan" inverse="true">
+        <set name="phones" cascade="all-delete-orphan" inverse="true" access="field">
           <key column="person_id"/>
           <one-to-many class="net.timandersen.model.Phone"/>
+        </set>
+        <set name="emails" cascade="all-delete-orphan" inverse="true" access="field">
+          <key column="person_id"/>
+          <one-to-many class="net.timandersen.model.Email"/>
         </set>
 
     </class>

@@ -1,5 +1,6 @@
 package net.timandersen.repository;
 
+import net.timandersen.model.Email;
 import net.timandersen.model.Person;
 import net.timandersen.model.Phone;
 import net.timandersen.util.SpringContextWrapper;
@@ -18,12 +19,8 @@ public class PersonDaoTest {
     person.setFirstName("Sam");
     person.setLastName("Jones");
 
-    Phone phone = new Phone();
-    phone.setPerson(person);
-    phone.setNumber("555-555-5555");
-    phone.setType("H");
-
-    person.addPhone(phone);
+    person.addPhone(new Phone("555-555-5555", "H", person));
+    person.addEmail(new Email("me@there.com", "P", person));
 
     personDao().save(person);
     List<Person> people = personDao().findAll();

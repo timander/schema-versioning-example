@@ -5,14 +5,14 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="net.timandersen.model.Phone" table="phone_numbers">
+    <class name="net.timandersen.model.Email" table="email">
 
-        <id name="id" column="phone_number_id" unsaved-value="0" access="field">
+        <id name="id" column="email_id" unsaved-value="0" access="field">
             <generator class="native"/>
         </id>
 
-        <property name="number" column="phone_number" access="field"/>
-        <property name="type" column="phone_type" access="field"/>
+        <property name="address" column="email_address" access="field"/>
+        <property name="type" column="email_type" access="field"/>
 
         <many-to-one name="person" column="person_id" not-null="true" access="field"/>
 
