@@ -6,21 +6,13 @@ PURPOSE: Show technique to track the schema version of your database
  2. SchemaVersionTestCase
  3. backwards compatible PersonView (test from JUnit)
 
-WIP 
 
-TO DO:
- * In-Memory DDL comparison
- * dbFit, fitnesse, fitlibrary
- * Hibernate Enums
- * test within transaction, then rollback
- * view for metadata
- * view for rowcount for each table
- * setup log4jdbc
-
-Lab Exercises:
+LAB EXERCISES:
  * Try adding a new change sql script and running the tests
  * Extract Addresses to support multiple addresses
 
+
+GETTING STARTED:
 ------------------------------------
 MySQL commands
 ------------------------------------
@@ -30,3 +22,13 @@ mysql> create database customer_dev;
 mysql> grant all on bootstrapdb.* to admin@localhost identified by 'p@ssw0rd';
 mysql> grant all on customer_dev.* to admin@localhost identified by 'p@ssw0rd';
 mysql> exit
+
+
+TO DO LATER:
+ * In-Memory DDL comparison
+ * dbFit, fitnesse, fitlibrary
+ * Hibernate Enums
+ * test within transaction, then rollback
+ * view for metadata
+ * view for rowcount for each table
+ * setup log4jdbc
