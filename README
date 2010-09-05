@@ -18,7 +18,7 @@ TO DO:
  * setup log4jdbc
 
 Lab Exercises:
- * Add Email Address to Person
+ * Try adding a new change sql script and running the tests
  * Extract Addresses to support multiple addresses
 
 ------------------------------------
