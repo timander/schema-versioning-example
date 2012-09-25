@@ -108,7 +108,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>sql-maven-plugin</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
         <dependencies>
           <dependency>
             <groupId>mysql</groupId>
@@ -149,6 +149,7 @@
               <goal>execute</goal>
             </goals>
             <configuration>
+              <orderFile>ascending</orderFile>
               <fileset>
                 <basedir>${basedir}</basedir>
                 <includes>
